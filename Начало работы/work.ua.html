@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Интерактив</title>
+        <meta charset="UTF-8">
+        <style>
+
+            body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                background-color: lightcoral;
+                transition: all .25s;
+            }
+
+            div {
+                text-align: center;
+            }
+
+            button {
+                border: 1px solid black;
+                padding: 15px 20px;
+                border-radius: 20px;
+                background: transparent;
+                cursor: pointer;
+                outline: none;
+            }
+
+            h1, h3, button {
+                animation: down 1s;
+            }
+
+            @keyframes down {
+                from {
+                    transform: translateY(-50px);
+                }
+                to {
+                    transform: translateY(0) ;
+                }
+            }
+        </style>
+    </head>
+<body>
+    <div>
+        <h3>Привет, Руслан</h3>
+        <h1>Сейчас 08:56:00</h1>
+        <button>Сменить фон</button>
+    </div>
+    <script>
+        const name = "Руслан"
+    
+        document.querySelector("h3").textContent = "Привет, " + name
+        document.querySelector("h1").textContent = "Сейчас" + new Date().toLocaleDateString()
+    
+            setInterval(function() {
+                document.querySelector("h1").textContent = "Сейчас" + new Date().toLocaleDateString()
+            }, 1000);
+
+            const colors =["indigo", "green", "darkred", "coral", "blue"]
+            let index = 0
+            document.querySelector("button").onclick = function () {
+            document.body.style.background = colors[index]
+            index++
+            if (index >= color.length) index = 0
+        }
+    </script>
+</body>
+</html>
